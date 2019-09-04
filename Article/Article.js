@@ -153,14 +153,21 @@ const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagr
   button.addEventListener('click', (event) =>{
     console.log(`${event.target} was clicked.`);
     article_div.classList.toggle('article-open');
-    button.textContent='\u25b2'; 
+    
   }); 
 
   return article_div; 
 };
 
+/**********************************Part 2: Add Articles**********************************/
+
+data.push({title: 'Build Week is Fun', date: 'September 04, 2019', firstParagraph: 'Build week is an opportunity for students to show off their skills! Students collaborate with other students from different classes to build a project. Don\'t be shy, show us your incredible skills and creativity', secondParagraph: 'Students will be graded by their TL on their contributions. Each student will present his/her project to their regular team during standup.', thirdParagraph:'The top 10 apps will be presented to all of Lambda School. Good luck students!!'}); 
+
+data.push({title:'Regarding FeedBack', date:'September 04, 2019', firstParagraph:'Lambda School welcomes feedback. Feedback helps us grow!', secondParagraph:'What we do not welcome are rants and personal attacks toward instructors, TLs or any other member of Lambda School.', thirdParagraph:'Please make sure to ask your TL about where to submit your feedback. This will ensure that your feedback is read by the right people!'}); 
+
 //map to create each article
-data.forEach(article =>{
+data.map(article =>{
   console.log(`Creating article: ${article.title}`);
   articles.append(createArticle(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph)); 
 });
+
