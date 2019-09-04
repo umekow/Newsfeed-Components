@@ -137,7 +137,7 @@ const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagr
   paragraph1.textContent = firstParagraph; 
   paragraph2.textContent = secondParagraph; 
   paragraph3.textContent = thirdParagraph; 
-  button.textContent = " "; 
+  button.textContent = "\u25bc"; 
 
 
   //append elements to article
@@ -150,10 +150,17 @@ const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagr
 
   //add event listener to button
 
-  button.addEventListener('click', (e) =>{
-    button.classList.toggle('article-open');
+  button.addEventListener('click', (event) =>{
+    console.log(`${event.target} was clicked.`);
+    article_div.classList.toggle('article-open');
+    button.textContent='\u25b2'; 
   }); 
 
   return article_div; 
 };
 
+//map to create each article
+data.forEach(article =>{
+  console.log(`Creating article: ${article.title}`);
+  articles.append(createArticle(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph)); 
+});
