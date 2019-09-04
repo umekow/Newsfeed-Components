@@ -113,6 +113,9 @@ const data = [
 
 */
 
+//create variable for articles div
+const articles = document.querySelector('.articles'); 
+
 const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagraph) => {
   //create article
   const article_div = document.createElement('div'); 
@@ -145,6 +148,12 @@ const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagr
   article_div.appendChild(paragraph3); 
   article_div.appendChild(button); 
 
+  //add event listener to button
+
+  button.addEventListener('click', (e) =>{
+    button.classList.toggle('article-open');
+  }); 
 
   return article_div; 
 };
+
