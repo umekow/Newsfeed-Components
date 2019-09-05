@@ -37,6 +37,7 @@ let menuItems = [
 //create html elements
 const createMenu = ( menuArray) => {
   const menu_div = document.createElement('div'); 
+  menu_div.classList.add('menu'); 
   const unorder_list = document.createElement('ul'); 
 
    menuArray.forEach(item => {
@@ -49,11 +50,23 @@ const createMenu = ( menuArray) => {
      
    }); 
 
-   
   //append unorder_list
   menu_div.appendChild(unorder_list); 
-  console.log(unorder_list); 
+  //select menu buttom 
 
+  const menu_button = document.querySelector('.menu-button');
+  menu_button.addEventListener('click', () =>{
+    menu_div.classList.toggle('menu--open');
+    console.log(menuArray);
+  });
+  return menu_div;
 }
 
-createMenu(menuItems);
+
+
+
+
+
+document.querySelector('.header').prepend(createMenu(menuItems)); 
+
+ 
